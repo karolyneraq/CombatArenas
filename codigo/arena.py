@@ -1,7 +1,23 @@
 import pygame
 
+# opening the files of the arenas
+arena_difficult_file = open("assets/arena_dif.txt", "r")
+arena_easy_file = open("assets/arena_easy.txt", "r")
 
-def list_of_objects(screen, color):
+# Reading the arenas
+data_dif = arena_difficult_file.read()
+data_easy = arena_easy_file.read()
+
+# Converting each line in an element of the lists
+arena_dif = data_dif.split('\n')
+arena_easy = data_easy.split('\n')
+
+# Closing the files
+arena_difficult_file.close()
+arena_easy_file.close()
+
+
+def arena_one(screen, color):
     lista = []
     obstacle = pygame.image.load("assets/obstacle1.png")
     pos = (430, 120)
