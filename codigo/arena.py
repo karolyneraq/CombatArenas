@@ -34,7 +34,8 @@ def draw_arena(screen, color, stage):
                     position = (x, y)
                     size = obstacle_face.get_size()
                     obstacle_rect = pygame.draw.rect(screen, color, (position[0], position[1],
-                                                                     obstacle_face.get_width(), obstacle_face.get_height()))
+                                                                     obstacle_face.get_width(),
+                                                                     obstacle_face.get_height()))
                     element = (obstacle_face, obstacle_rect, position, size)
                     lista.append(element)
 

@@ -1,5 +1,6 @@
 import pygame
 from arena import draw_arena
+from collision import collision_tank_or_ball, collision_tank_ball
 from config import *
 
 pygame.init()

@@ -1,7 +1,3 @@
-import pygame
-from config import *
-
-
 # Function that creates a tank (player)
 def create_tank(tank_photo):
     photo = pygame.Surface((tank_photo.get_width(), tank_photo.get_height()))
