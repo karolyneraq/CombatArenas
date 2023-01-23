@@ -1,3 +1,7 @@
+import pygame
+from config import *
+
+
 # Function that creates a tank (player)
 def create_tank(tank_photo):
     photo = pygame.Surface((tank_photo.get_width(), tank_photo.get_height()))
@@ -36,4 +40,3 @@ tank2.insert(5, spawn_y_tank_2)
 tank2.append(2)
 
 list_two_tank = [tank1, tank2]
-

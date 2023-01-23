@@ -1,6 +1,5 @@
 import pygame
-from arena import arena_one
-from collision import collision_tank_or_ball, collision_tank_ball
+from arena import draw_arena
 from config import *
 
 pygame.init()
@@ -8,20 +7,25 @@ pygame.init()
 # screen
 size = (900, 650)
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption("combat tank")
-screen.fill(orange)
+pygame.display.set_caption("Combat Tank Pong")
 
 exec(open("draw_tank.py").read())
 exec(open("game_elements.py").read())
 
-# objects draw
-list_of_objects = arena_one(screen, yellow)
+if stage_select == 0:
 
-# wall
-wall1 = pygame.draw.rect(screen, yellow, (0, 0, 900, 25))
-wall2 = pygame.draw.rect(screen, yellow, (0, 625, 900, 25))
-wall3 = pygame.draw.rect(screen, yellow, (0, 100, 25, 800))
-wall4 = pygame.draw.rect(screen, yellow, (875, 100, 25, 800))
+    background = pygame.image.load("assets/city_map.png")
+    background.get_rect().center = (0, 0)
+    screen.blit(background, background.get_rect())
+
+else:
+
+    background = pygame.image.load("assets/vegetation_map.png")
+    background.get_rect().center = (0, 0)
+    screen.blit(background, background.get_rect())
+
+# objects draw
+list_of_obstacles = draw_arena(screen, white, stage_select)
 
 clock = pygame.time.Clock()
 

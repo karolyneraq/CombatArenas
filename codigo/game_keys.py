@@ -1,3 +1,5 @@
+import pygame
+
 # configuring game keys
 if event.type == pygame.KEYDOWN:
     if event.key == pygame.K_p:

@@ -44,9 +44,8 @@ if no_animation and not victory1 and not victory2:
         if counter - recharge_time > time_to_recharge:
             tank[7][4] = False
 
-        # tank1 movement
-        if (giro_left and move) or (giro_right and move):
-            tank[7][0] = False
+        # tank movement
+        if move or (giro_right and giro_left):
             tank[7][1] = False
             tank[7][2] = False
 
@@ -87,21 +86,9 @@ if no_animation and not victory1 and not victory2:
             tank[0] = pygame.transform.rotate(tank[1], tank[6])
             tank[9] = speed.rotate(-1)
 
-        speed = tank[9]
-
         # taking tank1's location
         tank_rect = tank_foto.get_rect()
         tank_rect.center = (tank[4], tank[5])
-
-        # tank collision with wall
-        if tank_rect.colliderect(wall1):
-            tank[5] += +(abs(speed[1]))
-        if tank_rect.colliderect(wall2):
-            tank[5] += -(abs(speed[1]))
-        if tank_rect.colliderect(wall3):
-            tank[4] += +(abs(speed[0]))
-        if tank_rect.colliderect(wall4):
-            tank[4] += -(abs(speed[0]))
 
         # tank collision and draw obstacle
         tank_x = tank[4]
@@ -109,7 +96,7 @@ if no_animation and not victory1 and not victory2:
         comparison_x = tank[4]
         comparison_y = tank[5]
         speed = tank[9]
-        for element in list_of_objects:
+        for element in list_of_obstacles:
             obstacle_bit = element[0]
             obstacle_rect_idx = element[1]
             pos = element[2]
@@ -135,7 +122,7 @@ if no_animation and not victory1 and not victory2:
             speed_ball_y = ball[5]
             ball_life = ball[6]
             screen.blit(ball_image, ball_rect)
-            for element in list_of_objects:
+            for element in list_of_obstacles:
                 obstacle_bit = element[0]
                 obstacle_rect_idx = element[1]
                 pos = element[2]
@@ -150,14 +137,6 @@ if no_animation and not victory1 and not victory2:
                     ball[3] = var[0][1]
                     ball[4] = var[1][0]
                     ball[5] = var[1][1]
-            if ball_rect.colliderect(wall1) or ball_rect.colliderect(wall2):
-                ball[5] *= -1
-                ball[6] -= 1
-                bounce_ball.play()
-            if ball_rect.colliderect(wall3) or ball_rect.colliderect(wall4):
-                ball[4] *= -1
-                ball[6] -= 1
-                bounce_ball.play()
 
             # turn animation True
             if ball_rect.colliderect(tank_rect):
@@ -204,7 +183,7 @@ if no_animation and not victory1 and not victory2:
 if not no_animation and not victory1 and not victory2:
     if counter - time >= 2000:
         no_animation = True
-    for obstacle in list_of_objects:
+    for obstacle in list_of_obstacles:
         obstacle_archive = obstacle[0]
         obstacle_rect = obstacle[1]
         screen.blit(obstacle_archive, obstacle_rect)

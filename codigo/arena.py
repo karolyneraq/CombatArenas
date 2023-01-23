@@ -5,134 +5,55 @@ arena_difficult_file = open("assets/arena_dif.txt", "r")
 arena_easy_file = open("assets/arena_easy.txt", "r")
 
 # Reading the arenas
-data_dif = arena_difficult_file.read()
+data_hard = arena_difficult_file.read()
 data_easy = arena_easy_file.read()
 
 # Converting each line in an element of the lists
-arena_dif = data_dif.split('\n')
-arena_easy = data_easy.split('\n')
+arena_difficulties = [data_hard.split('\n'), data_easy.split('\n')]
 
 # Closing the files
 arena_difficult_file.close()
 arena_easy_file.close()
 
 
-def arena_one(screen, color):
+def draw_arena(screen, color, stage):
+
     lista = []
-    obstacle = pygame.image.load("assets/obstacle1.png")
-    pos = (430, 120)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], *obstacle.get_size()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (430, 590)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], *obstacle.get_size()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (235, 355)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], *obstacle.get_size()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (625, 355)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], *obstacle.get_size()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    obstacle = pygame.image.load("assets/obstacle2.png")
-    pos = (699, 177)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (139, 177)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (699, 551)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (139, 551)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    obstacle = pygame.image.load("assets/obstacle3.png")
-    pos = (748, 287)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (130, 287)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    obstacle = pygame.image.load("assets/obstacle4.png")
-    pos = (770, 287)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (770, 441)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (110, 287)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (110, 441)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    obstacle = pygame.image.load("assets/obstacle2.png")
-    pos = (521, 227)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (521, 503)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (316, 227)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (316, 503)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    obstacle = pygame.image.load("assets/obstacle5.png")
-    pos = (562, 249)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (562, 483)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (316, 249)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
-    pos = (316, 483)
-    size = obstacle.get_size()
-    obstacle_rect = pygame.draw.rect(screen, color, (pos[0], pos[1], obstacle.get_width(), obstacle.get_height()))
-    var = (obstacle, obstacle_rect, pos, size)
-    lista.append(var)
+
+    if stage == 0:
+
+        for i in range(25):
+
+            for j in range(36):
+
+                if arena_difficulties[stage][i][j] == '1':
+
+                    obstacle_face = pygame.image.load("assets/city_obstacle.png")
+                    x = (j * 25)
+                    y = (i * 22) + 100
+                    position = (x, y)
+                    size = obstacle_face.get_size()
+                    obstacle_rect = pygame.draw.rect(screen, color, (position[0], position[1],
+                                                                     obstacle_face.get_width(), obstacle_face.get_height()))
+                    element = (obstacle_face, obstacle_rect, position, size)
+                    lista.append(element)
+
+    else:
+
+        for i in range(25):
+
+            for j in range(36):
+
+                if arena_difficulties[stage][i][j] == '1':
+                    obstacle_face = pygame.image.load("assets/vegetation_obstacle1.png")
+                    x = (j * 25)
+                    y = (i * 22) + 100
+                    position = (x, y)
+                    size = obstacle_face.get_size()
+                    obstacle_rect = pygame.draw.rect(screen, color, (position[0], position[1],
+                                                                     obstacle_face.get_width(),
+                                                                     obstacle_face.get_height()))
+                    element = (obstacle_face, obstacle_rect, position, size)
+                    lista.append(element)
+
     return lista
